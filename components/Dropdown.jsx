@@ -58,6 +58,14 @@ const dropdowns = [
       { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
     ],
   },
+  {
+    buttonLabel: 'Futurestic Labs',
+    items: [
+      { label: 'Book The Lab', href: '/Lab' },
+      
+    ],
+  },
+
 ]
 
 export default function MultiDropdowns() {
@@ -101,7 +109,7 @@ export default function MultiDropdowns() {
 
       {/* Second row: 2 dropdowns centered */}
       <div className="flex justify-center space-x-4 ">
-        {dropdowns.slice(4, 7).map((dropdown, index) => (
+        {dropdowns.slice(4, 8).map((dropdown, index) => (
           <div key={index} className="dropdown dropdown-hover m-2 sm:m-0">
             <div
               tabIndex={0}
