@@ -14,7 +14,7 @@ import SheetDemo from "../components/SheetDemo"
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1"> {/* Dark yellow background */}
-      <div className="w-full max-w-screen-lg bg-primary_color2  rounded-lg shadow-lg"> {/* Light yellow inner box */}
+      <div className="w-full max-w-screen-2xl bg-primary_color2  rounded-lg shadow-lg"> {/* Light yellow inner box */}
         <ExampleNavbarThree></ExampleNavbarThree>
         <HeroOne></HeroOne>
         <CarouselSize></CarouselSize>

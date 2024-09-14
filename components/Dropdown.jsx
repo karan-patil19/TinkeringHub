@@ -1,9 +1,8 @@
-'use client'
+"use client";
 
-import React from 'react'
-import { useRouter } from 'next/navigation'
-import { ChevronDown} from "lucide-react";
-
+import React from 'react';
+import { useRouter } from 'next/navigation';
+import { ChevronDown } from 'lucide-react';
 
 const dropdowns = [
   {
@@ -62,31 +61,29 @@ const dropdowns = [
     buttonLabel: 'Futurestic Labs',
     items: [
       { label: 'Book The Lab', href: '/Lab' },
-      
     ],
   },
-
-]
+];
 
 export default function MultiDropdowns() {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleNavigation = (href) => {
-    router.push(href)
-  }
+    router.push(href);
+  };
 
   return (
     <div className="w-full bg-primary_color2 mt-2">
-      {/* First row: 5 dropdowns */}
-      <div className="flex flex-wrap justify-center sm:justify-between py-2 space-y-2 sm:space-y-0 ">
-        {dropdowns.slice(0, 4).map((dropdown, index) => (
-          <div key={index} className="dropdown dropdown-hover m-2 sm:m-0 py-1">
+      {/* Container to align all dropdowns in one line */}
+      <div className="flex flex-wrap justify-center gap-4 py-2">
+        {dropdowns.map((dropdown, index) => (
+          <div key={index} className="dropdown dropdown-hover">
             <div
               tabIndex={0}
               role="button"
-              className="btn w-full bg-primary_color2 text-black sm:w-auto shadow-lg dark:shadow-gray-300 hover:bg-primary_color1 hover:text-black transition-colors"
+              className="btn bg-primary_color2 text-black shadow-lg dark:shadow-gray-300 hover:bg-primary_color1 hover:text-black transition-colors"
             >
-              {dropdown.buttonLabel} <ChevronDown></ChevronDown>
+              {dropdown.buttonLabel} <ChevronDown />
             </div>
             <ul
               tabIndex={0}
@@ -98,36 +95,6 @@ export default function MultiDropdowns() {
                     className="hover:bg-primary_color1 hover:text-black transition-colors"
                     onClick={() => handleNavigation(item.href)}
                   >
-                    {item.label } 
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      {/* Second row: 2 dropdowns centered */}
-      <div className="flex justify-center space-x-4 ">
-        {dropdowns.slice(4, 8).map((dropdown, index) => (
-          <div key={index} className="dropdown dropdown-hover m-2 sm:m-0">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn w-full sm:w-auto bg-primary_color2 text-black shadow-lg dark:shadow-gray-300 hover:bg-white hover:text-black transition-colors "
-            >
-              {dropdown.buttonLabel}<ChevronDown></ChevronDown>
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-primary_color2 text-black rounded-box z-[1] w-52 p-2 shadow"
-            >
-              {dropdown.items.map((item, itemIndex) => (
-                <li key={itemIndex}>
-                  <a
-                    className="hover:bg-white hover:text-black transition-colors "
-                    onClick={() => handleNavigation(item.href)}
-                  >
                     {item.label}
                   </a>
                 </li>
@@ -137,5 +104,5 @@ export default function MultiDropdowns() {
         ))}
       </div>
     </div>
-  )
+  );
 }

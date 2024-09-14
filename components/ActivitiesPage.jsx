@@ -1,18 +1,17 @@
 "use client"
-import React ,{ useRef} from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { motion, useScroll } from "framer-motion"
-import { Container } from 'postcss';
+import { motion } from "framer-motion"
 
 // Reusable Card Component
 const ActivityCard = ({ title, description, items, itemColors, images, color }) => {
   return (
     <div
-      className={`rounded-3xl shadow-lg p-8 flex flex-col lg:flex-row items-center lg:items-center space-y-8 lg:space-y-0 lg:space-x-8`}
-      style={{ backgroundColor: color, width: '100%', maxWidth: '900px', margin: '0 auto' }}
+      className={`rounded-3xl shadow-lg p-8 flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-8`}
+      style={{ backgroundColor: color, width: '100%', maxWidth: '1200px', margin: '0 auto' }}
     >
-    <div className="flex-1 ">
-        <h3 className=" mt-9 text-3xl font-bold text-gray-900 mb-4">{title}</h3>
+      <div className="flex-1">
+        <h3 className="mt-9 text-3xl font-bold text-gray-900 mb-4">{title}</h3>
         <p className="text-gray-600 mb-6">{description}</p>
         <ul className="space-y-2 mb-6">
           {items.map((item, index) => (
@@ -29,7 +28,7 @@ const ActivityCard = ({ title, description, items, itemColors, images, color }) 
           View Project <span className="ml-2">→</span>
         </a>
       </div>
-      <div className="flex-1 grid grid-cols-1 gap-4">
+      <div className="flex-1 flex flex-col space-y-8"> {/* Adjusted spacing between images */}
         {images.map((image, index) => (
           <Image
             key={index}
@@ -38,6 +37,7 @@ const ActivityCard = ({ title, description, items, itemColors, images, color }) 
             alt={image.alt}
             width={500}
             height={300}
+            layout="responsive"
           />
         ))}
       </div>
@@ -50,7 +50,7 @@ const activities = [
   {
     title: "Creating cohorts as technology-based thrust areas Solutionist",
     description:
-      "Creating cohorts as technology-based thrust areas involves forming specialized groups focused on key technological domains like AI, IoT, and cybersecurity...",
+      "Creating cohorts as technology-based thrust areas involves forming specialized groups focused on key technological domains like AI, IoT, and cybersecurity. These cohorts are designed to foster innovation and collaboration within targeted sectors.",
     items: ["Enhanced Collaboration", "Resource Optimization", "Focused Innovation"],
     itemColors: ["#D6BCFA", "#C4B5FD", "#A78BFA"], // Different background colors for list items
     images: [
@@ -62,7 +62,7 @@ const activities = [
   {
     title: "Creating pipelines for research & entrepreneurship in consultation with startups and MSME",
     description:
-      "Creating pipelines for research and entrepreneurship with startups and MSMEs involves developing pathways to foster innovation and business growth...",
+      "Creating pipelines for research and entrepreneurship with startups and MSMEs involves developing pathways to foster innovation and business growth. These pipelines focus on leveraging collaboration for increased resource sharing and support.",
     items: ["Collaborative Ecosystem", "Innovation Support", "Resource Sharing"],
     itemColors: ["#FED7AA", "#FDBA74", "#FB923C"], // Different background colors for list items
     images: [
@@ -97,35 +97,31 @@ const activities = [
   },
 ];
 
-
-
 // Main Page Component
 const ActivitiesPage = () => {
-    return (
-      <div className="container bg-primary_color2 mx-auto py-12">
-        <h2 className="text-4xl font-bold text-center text-black mb-12">Explore Activities</h2>
-        <div className="space-y-8">
-          {activities.map((activity, index) => (
-            <div key={index} className="mb-8">
-            <motion.div initial={{opacity:0 ,y:100}}
-        whileInView={{opacity:1 , y:0}}
-        transition = {{duration:0.25 , delay : 0.5, ease:"easeOut"}}
-        viewport={{once:true}}>
-        <ActivityCard
-                title={activity.title}
-                description={activity.description}
-                items={activity.items}
-                itemColors={activity.itemColors}
-                images={activity.images}
-                color={activity.color}
-              /></motion.div>
-            
-              
-            </div>
-          ))}
-        </div>
+  return (
+    <div className="container mx-auto px-4 lg:px-12 py-12 bg-primary_color2">
+      <h2 className="text-4xl font-bold text-center text-black mb-12">Explore Activities</h2>
+      <div className="space-y-8">
+        {activities.map((activity, index) => (
+          <motion.div key={index} initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25, delay: 0.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <ActivityCard
+              title={activity.title}
+              description={activity.description}
+              items={activity.items}
+              itemColors={activity.itemColors}
+              images={activity.images}
+              color={activity.color}
+            />
+          </motion.div>
+        ))}
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default ActivitiesPage;
