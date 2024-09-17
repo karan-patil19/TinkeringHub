@@ -19,7 +19,7 @@ function WebinarCard({ title, presenter, date, description, imageSrc }) {
         <p className="text-sm font-semibold text-secondary">Presenter: {presenter}</p>
         <p className="text-xs text-muted-foreground">Date: {date}</p> {/* Reduced text size */}
         <p className="text-sm">{description}</p>
-        <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-2">
+        <Button className="w-full bg-black hover:bg-gray-600 text-white text-sm py-2">
           Register
         </Button>
       </CardContent>
@@ -33,7 +33,7 @@ export default function WebinarCards() {
       <div className="w-full max-w-screen-xl bg-primary_color2 rounded-lg border border-primary_color3 shadow-lg">
         <ExampleNavbarThree />
         {/* Added bold and centered text */}
-        <h1 className="text-2xl font-bold text-center text-black py-6">
+        <h1 className="text-2xl font-bold text-center text-white py-6">
           Upcoming Webinars & Expert Session
         </h1>
         <div className="container mx-auto px-4 py-8">
