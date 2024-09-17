@@ -16,7 +16,7 @@ export function Internships() {
   const [endDate, setEndDate] = useState(null)
 
   return (
-    <div className="container mx-auto p-6 bg-primary_color2 rounded-lg text-black">
+    <div className="bg-primary_color2 rounded-lg text-black p-6">
       <h1 className="text-2xl font-bold mb-6">Manage Internships</h1>
       <form className="space-y-6">
         <div>
@@ -124,6 +124,7 @@ export function Internships() {
         </div>
         <Button type="submit">Add Internship</Button>
       </form>
+      
     </div>
   )
 }
