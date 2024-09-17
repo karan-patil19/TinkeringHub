@@ -4,14 +4,15 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 
+// Filtered dropdowns to include only the needed items
 const dropdowns = [
   {
     buttonLabel: 'Webinar & Expert Session',
     items: [
       { label: 'Upcoming Webinar', href: '/UpcomingWebinar' },
-      { label: 'Upcoming Expression', href: '/UpcomingExpression' },
+      // { label: 'Upcoming Expression', href: '/UpcomingExpression' },
       { label: 'Past Webinar', href: '/PastWebinar' },
-      { label: 'Past Expression', href: '/PastExpression' },
+      // { label: 'Past Expression', href: '/PastExpression' },
     ],
   },
   {
@@ -22,39 +23,18 @@ const dropdowns = [
     ],
   },
   {
-    buttonLabel: 'Project Mentoring & InternShips',
+    buttonLabel: 'Project Mentoring & Internships',
     items: [
       { label: 'Peach Project', href: '/PeachProject' },
       { label: 'Open Internship', href: '/OpenInternship' },
-      { label: 'Past InternShip Experrience', href: '/PastInternShipExperrience' },
+      // { label: 'Past Internship Experience', href: '/PastInternshipExperience' },
     ],
   },
   {
-    buttonLabel: 'Sensitization & Awareness',
+    buttonLabel: 'Training & Workshop Session',
     items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
-    ],
-  },
-  {
-    buttonLabel: 'Funding Praposal',
-    items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
-    ],
-  },
-  {
-    buttonLabel: 'Demonstration',
-    items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
-    ],
-  },
-  {
-    buttonLabel: 'Traning & WorkShop Session',
-    items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
+      { label: 'Upcoming Training', href: '/UpcomingTraining' },
+      { label: 'Past Workshops', href: '/PastWorkshops' },
     ],
   },
   {
@@ -77,17 +57,17 @@ export default function MultiDropdowns() {
       {/* Container to align all dropdowns in one line */}
       <div className="flex flex-wrap justify-center gap-4 py-2">
         {dropdowns.map((dropdown, index) => (
-          <div key={index} className="dropdown dropdown-hover">
+          <div key={index} className="dropdown dropdown-hover border border-gray-300 rounded-lg">
             <div
               tabIndex={0}
               role="button"
-              className="btn bg-primary_color2 text-black shadow-lg dark:shadow-gray-300 hover:bg-primary_color1 hover:text-black transition-colors"
+              className="btn bg-primary_color2 text-black shadow-lg dark:shadow-gray-300 hover:bg-primary_color1 hover:text-black transition-colors border border-gray-300 rounded-lg"
             >
               {dropdown.buttonLabel} <ChevronDown />
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-primary_color2 text-black rounded-box z-[1] w-52 p-2 shadow"
+              className="dropdown-content menu bg-primary_color2 text-black rounded-box z-[1] w-52 p-2 shadow border border-gray-300"
             >
               {dropdown.items.map((item, itemIndex) => (
                 <li key={itemIndex}>

@@ -30,29 +30,29 @@ export default function PeachProjectForm() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1">
-      <div className="w-full max-w-screen-lg bg-primary_color2 rounded-lg shadow-lg p-6">
+    <main className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1"> {/* Dark yellow background */}
+      <div className="w-full max-w-screen-xl bg-primary_color2 rounded-lg border border-primary_color3 shadow-lg"> {/* Added border and shadow */}
         <ExampleNavbarThree />
         {/* Add margin-top to create more space between navbar and card */}
-        <Card className="w-full max-w-2xl mx-auto mt-8 bg-primary_color2"> 
+        <Card className="w-full max-w-4xl mx-auto mt-8 bg-primary_color2 border border-primary_color3 shadow-md"> {/* Added border and shadow */}
           <CardHeader>
-            <CardTitle>Peach Project Submission</CardTitle>
-            <CardDescription>Enter the details of your peach project</CardDescription>
+            <CardTitle className="text-lg">Peach Project Submission</CardTitle> {/* Increased text size */}
+            <CardDescription className="text-base">Enter the details of your peach project</CardDescription> {/* Adjusted text size */}
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="projectName">Project Name</Label>
-                <Input id="projectName" placeholder="Enter project name" required />
+            <form onSubmit={handleSubmit} className="space-y-6"> {/* Increased spacing */}
+              <div className="space-y-3">
+                <Label htmlFor="projectName" className="text-base">Project Name</Label> {/* Adjusted text size */}
+                <Input id="projectName" placeholder="Enter project name" required className="w-full" />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="teamLeader">Project Team Leader</Label>
-                <Input id="teamLeader" placeholder="Enter team leader's name" required />
+              <div className="space-y-3">
+                <Label htmlFor="teamLeader" className="text-base">Project Team Leader</Label> {/* Adjusted text size */}
+                <Input id="teamLeader" placeholder="Enter team leader's name" required className="w-full" />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="numParticipants">Number of Participants</Label>
+              <div className="space-y-3">
+                <Label htmlFor="numParticipants" className="text-base">Number of Participants</Label> {/* Adjusted text size */}
                 <Input 
                   id="numParticipants" 
                   type="number" 
@@ -60,48 +60,51 @@ export default function PeachProjectForm() {
                   value={numParticipants} 
                   onChange={handleParticipantChange}
                   required 
+                  className="w-full" 
                 />
               </div>
 
               {teamMembers.map((member, index) => (
-                <div key={index} className="space-y-2 border p-4 rounded-md bg-primary_color2">
-                  <h3 className="font-semibold">Team Member {index + 1}</h3>
-                  <div className="grid grid-cols-2 gap-2">
+                <div key={index} className="space-y-3 border p-6 rounded-md bg-primary_color2 border-primary_color3"> {/* Added border */}
+                  <h3 className="font-semibold text-lg">Team Member {index + 1}</h3> {/* Adjusted text size */}
+                  <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor={`enrollmentNo-${index}`}>Enrollment No</Label>
+                      <Label htmlFor={`enrollmentNo-${index}`} className="text-base">Enrollment No</Label> {/* Adjusted text size */}
                       <Input 
                         id={`enrollmentNo-${index}`}
                         value={member.enrollmentNo}
                         onChange={(e) => handleTeamMemberChange(index, 'enrollmentNo', e.target.value)}
                         required
+                        className="w-full"
                       />
                     </div>
                     <div>
-                      <Label htmlFor={`name-${index}`}>Name</Label>
+                      <Label htmlFor={`name-${index}`} className="text-base">Name</Label> {/* Adjusted text size */}
                       <Input 
                         id={`name-${index}`}
                         value={member.name}
                         onChange={(e) => handleTeamMemberChange(index, 'name', e.target.value)}
                         required
+                        className="w-full"
                       />
                     </div>
                   </div>
                 </div>
               ))}
 
-              <div className="space-y-2">
-                <Label htmlFor="projectDescription">Project Description</Label>
-                <Textarea id="projectDescription" placeholder="Describe your project" required />
+              <div className="space-y-3">
+                <Label htmlFor="projectDescription" className="text-base">Project Description</Label> {/* Adjusted text size */}
+                <Textarea id="projectDescription" placeholder="Describe your project" required className="w-full" />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="technologies">Technologies Used</Label>
-                <Input id="technologies" placeholder="e.g., React, Node.js, MongoDB" required />
+              <div className="space-y-3">
+                <Label htmlFor="technologies" className="text-base">Technologies Used</Label> {/* Adjusted text size */}
+                <Input id="technologies" placeholder="e.g., React, Node.js, MongoDB" required className="w-full" />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="pptUpload">Upload PPT</Label>
-                <Input id="pptUpload" type="file" accept=".ppt,.pptx" required />
+              <div className="space-y-3">
+                <Label htmlFor="pptUpload" className="text-base">Upload PPT</Label> {/* Adjusted text size */}
+                <Input id="pptUpload" type="file" accept=".ppt,.pptx" required className="w-full" />
               </div>
             </form>
           </CardContent>
@@ -110,6 +113,6 @@ export default function PeachProjectForm() {
           </CardFooter>
         </Card>
       </div>
-    </div>
+    </main>
   )
 }
