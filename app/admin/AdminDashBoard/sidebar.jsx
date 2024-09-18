@@ -1,4 +1,4 @@
-import { FolderIcon, BeakerIcon, VideoIcon, BriefcaseIcon, UserIcon, XIcon } from 'lucide-react';
+import { FolderIcon, BeakerIcon, VideoIcon, BriefcaseIcon, XIcon } from 'lucide-react';
 import { Button } from "../../../components/ui/button";
 
 export function Sidebar({ setActiveSection, isOpen, onClose, isMobile }) {
@@ -20,7 +20,7 @@ export function Sidebar({ setActiveSection, isOpen, onClose, isMobile }) {
         )}
       </div>
 
-      <nav className="flex-1 py-4">
+      <nav className="flex-1 py-4 overflow-y-auto">
         <ul className="space-y-2">
           <li>
             <Button
@@ -59,19 +59,6 @@ export function Sidebar({ setActiveSection, isOpen, onClose, isMobile }) {
             >
               <BriefcaseIcon className="mr-3 h-5 w-5" />
               Internships
-            </Button>
-          </li>
-          <li>
-            <Button
-              variant="ghost"
-              className="w-full justify-start text-black hover:bg-primary_color2"
-              onClick={() => {
-                setActiveSection('internAssignments');
-                if (isMobile) onClose();
-              }}
-            >
-              <UserIcon className="mr-3 h-5 w-5" />
-              Intern Assignments
             </Button>
           </li>
           <li>
