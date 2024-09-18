@@ -31,7 +31,7 @@ export default function PeachProjectForm() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1"> {/* Dark yellow background */}
-      <div className="w-full max-w-screen-xl bg-primary_color2 rounded-lg border border-primary_color3 shadow-lg"> {/* Added border and shadow */}
+      <div className="w-full max-w-screen-2xl bg-primary_color2 rounded-lg border border-primary_color3 shadow-lg"> {/* Added border and shadow */}
         <ExampleNavbarThree />
         {/* Add margin-top to create more space between navbar and card */}
         <Card className="w-full max-w-4xl mx-auto mt-8 bg-primary_color2 border border-primary_color3 shadow-md"> {/* Added border and shadow */}

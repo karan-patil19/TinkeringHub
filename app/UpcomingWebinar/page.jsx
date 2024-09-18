@@ -1,25 +1,25 @@
+'use client'
+import { useState } from 'react';
 import { Card, CardContent } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 import ExampleNavbarThree from "../../components/Navigation";
 
-function WebinarCard({ title, presenter, date, description, imageSrc }) {
+function WebinarCard({ title, presenter, date, description, imageSrc, onRegister }) {
   return (
     <Card className="max-w-xs w-full flex flex-col rounded-lg overflow-hidden">
-      {/* Image fits inside the card, centered and covering the container */}
-      <div className="w-full h-48"> {/* Reduced height to h-48 */}
+      <div className="w-full h-48">
         <img
           src={imageSrc}
           alt="Webinar thumbnail"
           className="w-full h-full object-cover object-center"
         />
       </div>
-      {/* Content below the image */}
-      <CardContent className="p-3 space-y-2 flex-grow"> {/* Reduced padding */}
-        <h2 className="text-lg font-bold text-primary">{title}</h2> {/* Slightly reduced font size */}
+      <CardContent className="p-3 space-y-2 flex-grow">
+        <h2 className="text-lg font-bold text-brown">{title}</h2>
         <p className="text-sm font-semibold text-secondary">Presenter: {presenter}</p>
-        <p className="text-xs text-muted-foreground">Date: {date}</p> {/* Reduced text size */}
+        <p className="text-xs text-gray-600">Date: {date}</p>
         <p className="text-sm">{description}</p>
-        <Button className="w-full bg-black hover:bg-gray-600 text-white text-sm py-2">
+        <Button onClick={onRegister} className="w-full bg-black hover:bg-gray-600 text-white text-sm py-2">
           Register
         </Button>
       </CardContent>
@@ -27,13 +27,99 @@ function WebinarCard({ title, presenter, date, description, imageSrc }) {
   );
 }
 
+function RegistrationForm({ onClose, onSubmit }) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(); // Trigger the toast and close the form
+    onClose();
+  };
+
+  return (
+    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 className="text-lg font-bold mb-4">Register for Webinar</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-sm font-semibold mb-2">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-semibold mb-2">Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-semibold mb-2">WhatsApp Number</label>
+            <input
+              type="text"
+              value={whatsapp}
+              onChange={(e) => setWhatsapp(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+          </div>
+          <div className="flex justify-end">
+            <Button type="submit" className="bg-black text-white px-4 py-2 rounded">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function Toast({ message }) {
+  return (
+    <div className="fixed bottom-4 right-4">
+      <div className="toast">
+        <div className="alert alert-info bg-blue-500 text-white px-4 py-2 rounded-lg">
+          <span>{message}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function WebinarCards() {
+  const [showForm, setShowForm] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleRegister = () => {
+    setShowForm(true);
+  };
+
+  const handleCloseForm = () => {
+    setShowForm(false);
+  };
+
+  const handleFormSubmit = () => {
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+    }, 4000); // Hide the toast after 2 seconds
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1">
-      <div className="w-full max-w-screen-xl bg-primary_color2 rounded-lg border border-primary_color3 shadow-lg">
+      <div className="w-full max-w-screen-2xl bg-primary_color2 rounded-lg border border-primary_color3 shadow-lg">
         <ExampleNavbarThree />
-        {/* Added bold and centered text */}
-        <h1 className="text-2xl font-bold text-center text-white py-6">
+        <h1 className="text-2xl font-bold text-center text-black py-6">
           Upcoming Webinars & Expert Session
         </h1>
         <div className="container mx-auto px-4 py-8">
@@ -44,6 +130,7 @@ export default function WebinarCards() {
               date="June 15, 2023"
               description="Join us for an exciting webinar where we'll explore the fundamentals of Next.js, a powerful React framework for building modern web applications. Learn about server-side rendering, routing, and more!"
               imageSrc="/images/pic1.png"
+              onRegister={handleRegister}
             />
             <WebinarCard
               title="Advanced React Patterns"
@@ -51,6 +138,7 @@ export default function WebinarCards() {
               date="July 20, 2023"
               description="Join us for an exciting webinar where we'll explore the fundamentals of Next.js, a powerful React framework for building modern web applications. Learn about server-side rendering, routing, and more!"
               imageSrc="/images/pic1.png"
+              onRegister={handleRegister}
             />
             <WebinarCard
               title="State Management with Redux"
@@ -58,10 +146,14 @@ export default function WebinarCards() {
               date="August 10, 2023"
               description="Join us for an exciting webinar where we'll explore the fundamentals of Next.js, a powerful React framework for building modern web applications. Learn about server-side rendering, routing, and more!"
               imageSrc="/images/pic1.png"
+              onRegister={handleRegister}
             />
           </div>
         </div>
       </div>
+
+      {showForm && <RegistrationForm onClose={handleCloseForm} onSubmit={handleFormSubmit} />}
+      {showToast && <Toast message="Registered Successfully" />}
     </main>
   );
 }
