@@ -79,14 +79,12 @@ export default async function DemoPage() {
   const data = await getData()
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1" >
-    <div className="w-full max-w-screen-lg bg-primary_color2  rounded-lg shadow-lg" >
-    <ExampleNavbarThree></ExampleNavbarThree>
+    <main className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1"> {/* Dark yellow background */}
+      <div className="w-full max-w-screen-xl bg-primary_color2 rounded-lg border border-primary_color3 shadow-lg"> {/* Added border and shadow */}
+    <ExampleNavbarThree />
     <h2 className="text-4xl font-bold text-center text-black mb-12 mt-4">Past Bootcamps</h2>
       <DataTable columns={columns} data={data} />
-    </div>
-    
-    
-    </div>
+      </div>
+    </main>
   )
 }

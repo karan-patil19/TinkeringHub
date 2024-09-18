@@ -34,7 +34,7 @@ export function ExampleNavbarThree() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.75, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between px-4 py-2 sm:px-6 lg:px-8">

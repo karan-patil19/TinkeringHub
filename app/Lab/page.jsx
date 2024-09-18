@@ -49,9 +49,9 @@ function Page() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1">
-      <div className="w-full max-w-screen-lg bg-primary_color2 rounded-lg shadow-lg relative">
-        <ExampleNavbarThree />
+    <main className="flex min-h-screen flex-col items-center p-8 justify-between bg-primary_color1">
+    <div className="w-full max-w-screen-2xl bg-primary_color2 rounded-lg shadow-lg">
+      <ExampleNavbarThree />
         <h2 className="text-4xl font-bold text-center text-black mb-12 mt-4">
           The Futuristic Labs
         </h2>
@@ -73,7 +73,7 @@ function Page() {
           <BookingForm onClose={handleCloseForm} />
         )}
       </div>
-    </div>
+    </main>
   );
 }
 
