@@ -10,9 +10,7 @@ const dropdowns = [
     buttonLabel: 'Webinar & Expert Session',
     items: [
       { label: 'Upcoming Webinar', href: '/UpcomingWebinar' },
-      // { label: 'Upcoming Expression', href: '/UpcomingExpression' },
       { label: 'Past Webinar', href: '/PastWebinar' },
-      // { label: 'Past Expression', href: '/PastExpression' },
     ],
   },
   {
@@ -27,7 +25,6 @@ const dropdowns = [
     items: [
       { label: 'Peach Project', href: '/PeachProject' },
       { label: 'Open Internship', href: '/OpenInternship' },
-      // { label: 'Past Internship Experience', href: '/PastInternshipExperience' },
     ],
   },
   {
@@ -55,13 +52,13 @@ export default function MultiDropdowns() {
   return (
     <div className="w-full bg-primary_color2 mt-2">
       {/* Container to align all dropdowns in one line */}
-      <div className="flex flex-wrap justify-center gap-4 py-2">
+      <div className="flex flex-wrap justify-center gap-4 py-2 md:py-4 md:gap-6 lg:gap-8">
         {dropdowns.map((dropdown, index) => (
-          <div key={index} className="dropdown dropdown-hover border border-gray-300 rounded-lg">
+          <div key={index} className="dropdown dropdown-hover border border-gray-300 rounded-lg w-full md:w-auto">
             <div
               tabIndex={0}
               role="button"
-              className="btn bg-primary_color2 text-black shadow-lg dark:shadow-gray-300 hover:bg-primary_color1 hover:text-black transition-colors border border-gray-300 rounded-lg"
+              className="btn bg-primary_color2 text-black shadow-lg dark:shadow-gray-300 hover:bg-primary_color1 hover:text-black transition-colors border border-gray-300 rounded-lg text-sm md:text-base py-2 px-3 md:py-3 md:px-4"
             >
               {dropdown.buttonLabel} <ChevronDown />
             </div>
