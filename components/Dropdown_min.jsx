@@ -7,9 +7,9 @@ const dropdowns = [
     buttonLabel: 'Webinar & Expert Session',
     items: [
       { label: 'Upcoming Webinar', href: '/UpcomingWebinar' },
-      { label: 'Upcoming Expression', href: '/UpcomingExpression' },
+      
       { label: 'Past Webinar', href: '/PastWebinar' },
-      { label: 'Past Expression', href: '/PastExpression' },
+      
     ],
   },
   {
@@ -20,32 +20,30 @@ const dropdowns = [
     ],
   },
   {
-    buttonLabel: 'Project Mentoring & InternShips',
+    buttonLabel: 'Project Mentoring ',
     items: [
       { label: 'Peach Project', href: '/PeachProject' },
+    ],
+  },
+  {
+    buttonLabel: 'Internships',
+    items: [
+     
       { label: 'Open Internship', href: '/OpenInternship' },
-      { label: 'Past InternShip Experience', href: '/PastInternShipExperience' },
+      // { label: 'Past Internship Experience', href: '/PastInternshipExperience' },
     ],
   },
+  // {
+  //   buttonLabel: 'Training & Workshop Session',
+  //   items: [
+  //     { label: 'Upcoming Training', href: '/UpcomingTraining' },
+  //     { label: 'Past Workshops', href: '/PastWorkshops' },
+  //   ],
+  // },
   {
-    buttonLabel: 'Sensitization & Awareness',
+    buttonLabel: 'Futurestic Labs',
     items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
-    ],
-  },
-  {
-    buttonLabel: 'Funding Proposal',
-    items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
-    ],
-  },
-  {
-    buttonLabel: 'Demonstration',
-    items: [
-      { label: 'Upcoming Workshop', href: '/UpcomingWorkshop' },
-      { label: 'Past Workshops Videos', href: '/PastWorkshopsVideos' },
+      { label: 'Book The Lab', href: '/Lab' },
     ],
   },
   // {

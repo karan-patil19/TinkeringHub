@@ -23,9 +23,17 @@ const dropdowns = [
     ],
   },
   {
-    buttonLabel: 'Project Mentoring & Internships',
+    buttonLabel: 'Project Mentoring ',
     items: [
       { label: 'Peach Project', href: '/PeachProject' },
+      
+      // { label: 'Past Internship Experience', href: '/PastInternshipExperience' },
+    ],
+  },
+  {
+    buttonLabel: 'Internships',
+    items: [
+     
       { label: 'Open Internship', href: '/OpenInternship' },
       // { label: 'Past Internship Experience', href: '/PastInternshipExperience' },
     ],
