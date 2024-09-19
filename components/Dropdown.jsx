@@ -16,10 +16,10 @@ const dropdowns = [
     ],
   },
   {
-    buttonLabel: 'BootCamps',
+    buttonLabel: 'Workshops',
     items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
+      { label: 'Upcoming Workshop', href: '/UpcomingWorkshop' },
+      { label: 'Past Workshops Videos', href: '/PastWorkshopsVideos' },
     ],
   },
   {
@@ -30,13 +30,13 @@ const dropdowns = [
       // { label: 'Past Internship Experience', href: '/PastInternshipExperience' },
     ],
   },
-  {
-    buttonLabel: 'Training & Workshop Session',
-    items: [
-      { label: 'Upcoming Training', href: '/UpcomingTraining' },
-      { label: 'Past Workshops', href: '/PastWorkshops' },
-    ],
-  },
+  // {
+  //   buttonLabel: 'Training & Workshop Session',
+  //   items: [
+  //     { label: 'Upcoming Training', href: '/UpcomingTraining' },
+  //     { label: 'Past Workshops', href: '/PastWorkshops' },
+  //   ],
+  // },
   {
     buttonLabel: 'Futurestic Labs',
     items: [

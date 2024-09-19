@@ -13,10 +13,10 @@ const dropdowns = [
     ],
   },
   {
-    buttonLabel: 'BootCamps',
+    buttonLabel: 'Workshops',
     items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
+      { label: 'Upcoming Workshop', href: '/UpcomingWorkshop' },
+      { label: 'Past Workshops Videos', href: '/PastWorkshopsVideos' },
     ],
   },
   {
@@ -44,17 +44,17 @@ const dropdowns = [
   {
     buttonLabel: 'Demonstration',
     items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
+      { label: 'Upcoming Workshop', href: '/UpcomingWorkshop' },
+      { label: 'Past Workshops Videos', href: '/PastWorkshopsVideos' },
     ],
   },
-  {
-    buttonLabel: 'Training & Workshop Session',
-    items: [
-      { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
-      { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
-    ],
-  },
+  // {
+  //   buttonLabel: 'Training & Workshop Session',
+  //   items: [
+  //     { label: 'Upcoming Bootcamp', href: '/UpcomingBootcamp' },
+  //     { label: 'Past BootCamps Videos', href: '/PastBootCampsVideos' },
+  //   ],
+  // },
 ];
 
 export default function MultiDropdowns() {
