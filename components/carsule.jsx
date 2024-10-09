@@ -1,14 +1,20 @@
 'use client';
 
 import * as React from "react";
-import { Card } from "../components/ui/card"; // Assuming you have a basic Card component
+import { motion } from "framer-motion";
+import { Card } from "../components/ui/card"; 
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../components/ui/carousel"; // Ensure this is a client component that supports looping
+} from "../components/ui/carousel";
+
+const cardVariants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0 },
+};
 
 export function CarouselSpacing() {
   const cards = [
@@ -44,33 +50,41 @@ export function CarouselSpacing() {
         What does Tinkering Hub do?
       </h2>
 
-      {/* Display simple cards side by side on md and larger screens */}
+      {/* Animated cards for large and medium screens */}
       <div className="hidden ml-2 mr-2 lg:flex md:justify-between md:space-x-4">
         {cards.map((card, index) => (
-          <Card
+          <motion.div
             key={index}
-            className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg w-full md:w-1/4 h-60 md:h-80" // Different heights for mobile and larger screens
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 0.5, delay: index * 0.3 }}
+            variants={cardVariants}
+            className="flex justify-center w-full"
           >
-            <img
-              src={card.imageSrc}
-              alt={card.title}
-              className="w-20 h-18 mb-4 object-contain"
-            />
-            <h3 className="text-lg font-medium mb-2">{card.title}</h3>
-            <p className="text-sm text-gray-600 overflow-hidden text-ellipsis">
-              {card.description}
-            </p>
-          </Card>
+            <Card
+              className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg w-64 h-60 md:w-56 md:h-64 lg:w-64 lg:h-80" // Further reduced size for md screens
+            >
+              <img
+                src={card.imageSrc}
+                alt={card.title}
+                className="w-20 h-18 mb-4 object-contain"
+              />
+              <h3 className="text-lg font-medium mb-2">{card.title}</h3>
+              <p className="text-sm text-gray-600 overflow-hidden text-ellipsis">
+                {card.description}
+              </p>
+            </Card>
+          </motion.div>
         ))}
       </div>
 
-      {/* Display the carousel on screens smaller than md */}
+      {/* Carousel for small and medium screens */}
       <Carousel
         opts={{
           align: "center",
           loop: true,
           gap: "1rem",
-          dragFree: false, // Ensure dragFree is disabled for proper button navigation
+          dragFree: false,
           autoplay: {
             delay: 3000,
             pauseOnHover: true,
@@ -81,7 +95,7 @@ export function CarouselSpacing() {
         <CarouselContent className="flex items-center">
           {cards.map((card, index) => (
             <CarouselItem key={index} className="flex-none w-full p-4">
-              <Card className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg h-64"> {/* Fixed height for mobile */}
+              <Card className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg h-64">
                 <img
                   src={card.imageSrc}
                   alt={card.title}

@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from "framer-motion"
+import SlightFlip from "../components/magicui/flip-text"
 
 // Reusable Card Component
 const ActivityCard = ({ title, description, items, itemColors, images, color }) => {
@@ -101,7 +102,12 @@ const activities = [
 const ActivitiesPage = () => {
   return (
     <div className="container mx-auto px-4 lg:px-12 py-12 bg-primary_color2">
-      <h2 className="text-4xl font-bold text-center text-black mb-12">Explore Activities</h2>
+    <SlightFlip 
+    word="Explor Activities" 
+    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black font-bold mb-4" 
+  />
+  
+
       <div className="space-y-8">
         {activities.map((activity, index) => (
           <motion.div key={index} initial={{ opacity: 0, y: 100 }}

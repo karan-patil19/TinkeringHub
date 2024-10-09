@@ -1,3 +1,4 @@
+
 import { ExampleNavbarThree } from "../components/Navigation"
 import { HeroOne } from "../components/Hero"
 import { CarouselSize } from "../components/Caurasoal"
@@ -11,6 +12,7 @@ import Hackathon from "../components/hackathon"
 import Tracks from "../components/tracks"
 import OurTeams from "../components/teams"
 import { Faq } from "../components/faq"
+
 
 export default function Home() {
   return (

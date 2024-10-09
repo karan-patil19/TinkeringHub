@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily:{
+        calibri: ['Calibri', 'sans-serif'], // Adding Calibri as a custom font
+      },
       colors:{
         primary_color1:'#eae8e1',
         primary_color2:'#f6f4f1',

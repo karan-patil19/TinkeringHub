@@ -7,6 +7,7 @@ import { Menu } from "lucide-react";
 import MultiDropdowns from "./Dropdown";
 import { motion } from "framer-motion";
 import SheetDemo from "../components/SheetDemo";
+import BlurIn from "../components/magicui/blur-in";
 
 export function ExampleNavbarThree() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -55,7 +56,10 @@ export function ExampleNavbarThree() {
                     />
                   </svg>
                 </span>
-                <span className="font-bold text-black">Tinkering Hub</span>
+
+                
+                
+                <BlurIn word ="Tinkering Hub" className=" font-bold text-black dark:text-white"></BlurIn>
                 <span className="w-40">
                   <img src="/images/logo1.png" alt="Tinkering Hub Logo" />
                 </span>
